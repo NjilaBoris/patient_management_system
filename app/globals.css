@@ -10,6 +10,9 @@
     height: 0px;
     border-radius: 0px;
   }
+  .white {
+    color: white;
+  }
 
   .remove-scrollbar::-webkit-scrollbar-track {
     background: transparent;
