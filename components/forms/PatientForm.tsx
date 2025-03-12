@@ -23,6 +23,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import SubmitButton from "../SubmitButton";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -46,6 +48,7 @@ export default function PatientForm<T extends FieldValues>({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
   });
+  const [isLoading, setIsloading] = useState(false);
 
   // 2. Define a submit handler.
   const handleSubmit: SubmitHandler<T> = async () => {};
@@ -101,12 +104,12 @@ export default function PatientForm<T extends FieldValues>({
           />
         ))}
 
-        <Button
-          disabled={form.formState.isSubmitting}
+        <SubmitButton
+          isLoading={isLoading}
           className="w-full bg-green-500 p-5 rounded-md min-h-12"
         >
           Submit
-        </Button>
+        </SubmitButton>
       </form>
     </Form>
   );
