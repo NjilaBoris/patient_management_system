@@ -1,18 +1,12 @@
 import { z } from "zod";
 
-export const SignUpSchema = z.object({
-  username: z
+export const UserFormValidation = z.object({
+  name: z
     .string()
-    .min(3, { message: "Username must be at least 3 characters long." })
-    .max(30, { message: "Username cannot exceed 30 characters." })
-    .regex(/^[a-zA-Z0-9_]+$/, {
-      message: "Username can only contain letters, numbers, and underscores.",
-    }),
-  email: z
+    .min(2, "Name must be at least 2 characters")
+    .max(50, "Name must be at most 50 characters"),
+  email: z.string().email("Invalid email address"),
+  phone: z
     .string()
-    .min(1, { message: "Email is required" })
-    .email({ message: "Please provide a valid email address" }),
-  phoneNumber: z.number().min(8, {
-    message: "Phone number must be at least 8 characters.",
-  }),
+    .refine((phone) => /^\+\d{10,15}$/.test(phone), "Invalid phone number"),
 });

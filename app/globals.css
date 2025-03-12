@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 /* ========================================== TAILWIND STYLES */
+:root {
+  --react-international-phone-height: 36px;
+  --react-international-phone-width: 100%;
+  --react-international-phone-background-color: #1a1d21;
+  --react-international-phone-text-color: #ffff;
+  --react-international-phone-font-size: 13px;
+  --react-international-phone-border-radius: 4px;
+  --react-international-phone-border-color: gainsboro;
+  --react-international-phone-disabled-background-color: whitesmoke;
+  --react-international-phone-disabled-text-color: #666;
+  --react-international-phone-country-selector-border-color: #1a1d21;
+  --react-international-phone-country-selector-background-color-hover: #1a1d21;
+  --react-international-phone-country-selector-text-color: #ffff;
+  --react-international-phone-dropdown-item-text-color: #080707;
+  --react-international-phone-dropdown-item-background-color: #f1e6e6;
+}
 @layer base {
   /* Remove scrollbar */
   .remove-scrollbar::-webkit-scrollbar {
